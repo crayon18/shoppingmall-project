@@ -9,7 +9,7 @@
 <body>
 
 <%
-	String center = request.getParameter("Center");
+	String center = request.getParameter("center");
 	
 //처음 실행 시에는 center값이 넘어오지 않기때문에 널처리 해줌
 	if(center==null){
