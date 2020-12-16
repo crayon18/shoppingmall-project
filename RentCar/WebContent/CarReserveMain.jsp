@@ -30,7 +30,7 @@
 		CarListBean bean = v.get(i);
 	%>
 		<td width="333" align="center">
-		<a href="CarReserveInfo.jsp?no=<%=bean.getNo()%>">
+		<a href="RentcarMain.jsp?center=CarReserveInfo.jsp?no=<%=bean.getNo()%>">
 		<img alt="" src="img/<%= bean.getImg()%>" width="300" height="220">
 		</a><p>
 		Â÷·®¸í : <%=bean.getName() %>
