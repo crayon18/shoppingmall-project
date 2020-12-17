@@ -70,7 +70,10 @@
 										</select></td>
 	</tr>
 	<tr>
-		<td align="center" colspan="2"><input type="submit" value="차량예약하기"></td>
+		<td align="center" colspan="2">
+		<input type="hidden" name="no" value="<%=no%>">
+		<input type="hidden" name="qty" value="<%=qty%>">
+		<input type="submit" value="차량예약하기"></td>
 	</tr>
 </table>
 </form>

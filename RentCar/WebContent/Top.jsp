@@ -31,7 +31,16 @@ color:white;
 			</a>
 		</td>
 		<td align="center" width="200">
-			<%=id %>´Ô ¹Ý°©½À´Ï´Ù.
+			<%=id %>
+		<%
+			if(id.equals("guest")){ %>
+			<button onclick="location.href='RentcarMain.jsp?center=MemberLogin.jsp'">·Î±×ÀÎ</button>	
+		<%
+			}else{%>
+				<button onclick="location.href='MemberLogout.jsp'">·Î±×¾Æ¿ô</button>
+		<%
+			}
+		%>
 		</td>
 	</tr>
 	<tr height="50">
