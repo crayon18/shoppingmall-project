@@ -190,4 +190,93 @@ public class RentcarDAO {
 		}
 		
 		
+		//하나의 예약 정보를 저장하는 메소드
+		public void setReserveCar(CarReserveBean bean) {
+			
+			getCon();
+			try {
+				String sql = "insert into carreserve values(reserve_seq.NEXTVAL,?,?,?,?,?,?,?,?,?)";
+				pstmt = con.prepareStatement(sql);
+				//?값 대입
+				pstmt.setInt(1, bean.getNo());
+				pstmt.setString(2, bean.getId());
+				pstmt.setInt(3, bean.getQty());
+				pstmt.setInt(4, bean.getDday());
+				pstmt.setString(5, bean.getRday());
+				pstmt.setInt(6, bean.getUsein());
+				pstmt.setInt(7, bean.getUsewifi());
+				pstmt.setInt(8, bean.getUseseat());
+				pstmt.setInt(9, bean.getUsenavi());
+				
+				pstmt.executeUpdate();
+				
+				con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		public Vector<CarViewBean> getAllReserve(String id){
+	       	//리턴 타입을 설정 
+	    		Vector<CarViewBean> v = new Vector<>();
+	    		//데이터를 저장할 빈 클래스 선언 
+	    		CarViewBean bean = null;
+	    		
+	    		getCon();//커넥션이 연결되어야 쿼리를 실행가능 
+	    		
+	        	try {
+	        		//쿼리문
+	        		String sql = "select * from rentcar natural join carreserve where sysdate < to_date(rday,'YYYY-MM-DD') and id =?";
+	        		pstmt = con.prepareStatement(sql);
+	        		
+	        		//?
+	        		pstmt.setNString(1,id);
+	        		
+	        		// 결과를 리턴
+	        		rs = pstmt.executeQuery();
+	        		
+	        		//반복문을 돌면서 데이터를 저장
+	        		while(rs.next()){
+	        			//데이터를 저장할 빈클래스 생성
+	        			bean = new CarViewBean();
+	        			bean.setName(rs.getString(2));
+	        			bean.setPrice(rs.getInt(4));
+	        			bean.setImg(rs.getString(7));
+	        			bean.setQty(rs.getInt(11));
+	        			bean.setDday(rs.getInt(12));
+	        			bean.setRday(rs.getString(13));
+	        			bean.setUsein(rs.getInt(14));
+	        			bean.setUsewifi(rs.getInt(15));
+	        			bean.setUsenavi(rs.getInt(16));
+	        			bean.setUseseat(rs.getInt(17));
+	        			//벡터에 빈 클래스를 저장
+	        			v.add(bean);
+	        		}
+	        		con.close();
+	        	}catch (Exception e) {
+	        		e.printStackTrace();
+	        	}
+	        	return v;
+	    }
+		
+		//하나의 예약을 삭제하는 메소드
+		public void carRemoveReserve(String id, String rday) {
+			
+			getCon();
+			
+			try {
+				String sql = "delete from carreserve where id=? and rday=?";
+				pstmt = con.prepareStatement(sql);
+				//?
+				pstmt.setString(1, id);
+				pstmt.setString(2, rday);
+				
+				//쿼리실행
+				pstmt.executeUpdate();
+				con.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 }

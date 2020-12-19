@@ -1,35 +1,34 @@
 package db;
 
-import java.sql.Date;
+public class CarViewBean {
 
-public class CarReserveBean {
-	private int reserveno;
-	private String id;
-	private int no;
+	private String name;
+	private int price;
+	private String img;
 	private int qty;
-	private int dday;//대여기간
-	private String rday;//대여일
+	private int dday;
+	private String rday;
 	private int usein;
 	private int usewifi;
-	private int useseat;
 	private int usenavi;
-	public int getReserveno() {
-		return reserveno;
+	private int useseat;
+	public String getName() {
+		return name;
 	}
-	public void setReserveno(int reserveno) {
-		this.reserveno = reserveno;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getId() {
-		return id;
+	public int getPrice() {
+		return price;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setPrice(int price) {
+		this.price = price;
 	}
-	public int getNo() {
-		return no;
+	public String getImg() {
+		return img;
 	}
-	public void setNo(int no) {
-		this.no = no;
+	public void setImg(String img) {
+		this.img = img;
 	}
 	public int getQty() {
 		return qty;
@@ -61,16 +60,16 @@ public class CarReserveBean {
 	public void setUsewifi(int usewifi) {
 		this.usewifi = usewifi;
 	}
-	public int getUseseat() {
-		return useseat;
-	}
-	public void setUseseat(int useseat) {
-		this.useseat = useseat;
-	}
 	public int getUsenavi() {
 		return usenavi;
 	}
 	public void setUsenavi(int usenavi) {
 		this.usenavi = usenavi;
+	}
+	public int getUseseat() {
+		return useseat;
+	}
+	public void setUseseat(int useseat) {
+		this.useseat = useseat;
 	}
 }

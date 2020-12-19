@@ -48,7 +48,7 @@ color:white;
 			<font size="5"><a href="RentcarMain.jsp?center=CarReserveMain.jsp" style="text-decoration:none">예약하기</a></font>
 		</td>
 		<td align="center" width="200" bgcolor="red">
-			<font size="5"><a href="#" style="text-decoration:none">예약확인</a></font>
+			<font size="5"><a href="RentcarMain.jsp?center=CarReserveView.jsp" style="text-decoration:none">예약확인</a></font>
 		</td>
 		<td align="center" width="200" bgcolor="red">
 			<font size="5"><a href="#" style="text-decoration:none">자유게시판</a></font>
